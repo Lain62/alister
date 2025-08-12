@@ -35,7 +35,7 @@ module Alister
     # Creates a new html page on path
     # @param path [String] route path on where to build
     # @param page [HTML::Builder, HTML::Element, String] content that will be put inside the page
-    # return [void]
+    # @return [void]
     def route(path, page)
       @routes << Page.new(path, page)
     end
@@ -43,14 +43,14 @@ module Alister
     # Creates a new file on path
     # @param path [String] route path on where to build, including the name of the file
     # @param string [String] content that will be put inside the file
-    # return [void]
+    # @return [void]
     def file(path, string)
       @files << Page.new(path, string)
     end
 
     # Builds the site
     # @param path [String] path on where to build
-    # return [void]
+    # @return [void]
     def build_to(path)
       @path = path
       @routes.each do |route|
@@ -74,14 +74,14 @@ module Alister
     #     file "**/*"
     #     build_to_and_reset "./build/assets/"
     #   end
-    # return [void]
+    # @return [void]
     def assets(&block)
       assets = Alister::Assets.new
       assets.instance_eval(&block)
     end
 
     # Resets the site builder for next build
-    # return [void]
+    # @return [void]
     def reset
       @path = nil
       @routes = []
@@ -90,7 +90,7 @@ module Alister
 
     # Builds and then resets the site builder
     # @param path [String] path on where to build
-    # return [void]
+    # @return [void]
     def build_to_and_reset(path)
       build_to(path)
       reset
