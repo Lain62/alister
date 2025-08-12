@@ -33,6 +33,8 @@ gem install alister
 ## Usage
 
 ```ruby
+require 'alister'
+
 root_page = Alister.html do
   doctype
   html lang: "en" do
