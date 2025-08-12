@@ -4,6 +4,20 @@ A super minimal ruby solution to static site generation. This gem allows you to 
 
 ## Installation
 
+Install all the dependencies first:
+
+For Ubuntu, Debian:
+
+    sudo apt-get install libjpeg-dev libpng-dev libtiff-dev libwebp-dev
+
+For Fedora, CentOS:
+
+    sudo dnf install libjpeg-devel libpng-devel libtiff-devel libwebp-devel
+
+For Mac OS:
+
+    brew install libjpg libpng libtiff webp
+
 Install the gem and add to the application's Gemfile by executing:
 
 ```bash
@@ -18,7 +32,24 @@ gem install alister
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+root_page = Alister.html do
+  doctype
+  html lang: "en" do
+    head do
+      meta charset: "utf-8"
+      meta name: "viewport", content: "width=device-width, initial-scale=1"
+    end
+    body do
+      div id: "app" do
+        p "hello world"
+      end
+    end
+end
+s = Alister::Site.new
+s.route "/", root_page
+s.build "./build"
+```
 
 ## Development
 
