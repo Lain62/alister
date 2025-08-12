@@ -17,7 +17,7 @@ require_relative 'self'
 #       end
 #       body do
 #         div id: "app" do
-#           p "hello world"
+#           para "hello world"
 #         end
 #       end
 #   end
